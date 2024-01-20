@@ -26,3 +26,15 @@ app.listen(3002,()=> {
 
 app.use("/api/user", userRoutes);
 app.use('/api/auth', authRouter);
+
+//add Middleware to Express app for system's error handling
+
+app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500;
+    const message = err.message || 'Internal Server Error';
+    return res.status(statusCode).json({
+        success: false,
+        statusCode,
+        message,
+    });
+});
