@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import userRoutes from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import postRoutes from './routes/post.route.js';
+import commentRoutes from './routes/comment.route.js';
 import cookieParser from 'cookie-parser';
 
 dotenv.config();
@@ -33,6 +34,7 @@ app.listen(3002,()=> {
 app.use("/api/user", userRoutes);
 app.use('/api/auth', authRouter);
 app.use('/api/post', postRoutes);
+app.use('/api/comment', commentRoutes);
 
 //add Middleware to Express app for system's error handling
 
